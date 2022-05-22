@@ -1,0 +1,87 @@
+@import 'variables' , 'textcss';
+
+@function mult($number) {
+  $result: $number * 4;
+  @return $result + px;
+}
+
+@each $size in $sizes {
+  .mgl-#{$size} {
+    margin-left: mult($size);
+  }
+
+  .mgr-#{$size} {
+    margin-right: mult($size);
+  }
+
+  .mgt-#{$size} {
+    margin-top: mult($size);
+  }
+
+  .mgt-n#{$size} {
+    margin-top: -#{mult($size)};
+  }
+
+  .mgb-#{$size} {
+    margin-bottom: mult($size);
+  }
+
+  .mgb-n#{$size} {
+    margin-bottom: -#{mult($size)};
+  }
+
+  .mgx-#{$size} {
+    margin: 0 mult($size);
+  }
+
+  .mgy-#{$size} {
+    margin: mult($size) 0;
+  }
+
+  .pdl-#{$size} {
+    padding-left: mult($size);
+  }
+
+  .pdr-#{$size} {
+    padding-right: mult($size);
+  }
+
+  .pdt-#{$size} {
+    padding-top: mult($size);
+  }
+
+  .pdb-#{$size} {
+    padding-bottom: mult($size);
+  }
+
+  .pdx-#{$size} {
+    padding: 0 mult($size);
+  }
+  
+  .pda-#{$size} {
+    padding: mult($size);
+  }
+}
+
+.mgy-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}  
+
+.mgx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@each $direction in $directions {
+
+  .text-#{$direction} {
+    text-align: $direction;
+  }
+}
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color !important;
+  }
+}

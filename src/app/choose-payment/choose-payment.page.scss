@@ -1,0 +1,20 @@
+.overline {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #909399;
+}
+
+.checkbox {
+  --border-radius: 50%;
+}
+
+.list-border {
+  border: 1px solid #E2E7ED;
+  box-sizing: border-box;
+  border-radius: 4px;
+}

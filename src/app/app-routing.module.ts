@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'choose-payment',
     pathMatch: 'full'
+  },
+  {
+    path: 'choose-payment',
+    loadChildren: () => import('./choose-payment/choose-payment.module').then( m => m.ChoosePaymentPageModule)
   },
 ];
 
