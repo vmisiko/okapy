@@ -8,57 +8,44 @@
 </ion-header>
 
 <ion-content>
-  <div id="container" class="mgt-6" >
-    <ion-label>
-      <ion-title class="overline">DEBit OR CREDIT CARD</ion-title>
-    </ion-label>
-    
-    <div class="mgy-5"></div>
+  <ion-radio-group [value]="selected" (ionChange)="update($event)" >
 
-    <div class="list-border ion-no-padding mgx-5 ">
-      <ion-list lines="none" class="ion-no-margin ion-no-padding">
-        <ion-item>
-          <img width="34" height="24" [src]="iconUrl">
-          <ion-label class="mgl-2"> 
-            <div class="caption-1-regular text-gray90">Visa</div> 
-            <span class="caption-2-semibold text-gray70">**** 5698</span>
-          </ion-label>
-          <ion-checkbox checked="true" slot="end" class="checkbox"></ion-checkbox>
-        </ion-item>
-      </ion-list>
-    </div>
-  </div>
+    <div id="container" class="mgt-6" >
+      <ion-label>
+        <ion-title class="overline">DEBIT OR CREDIT CARD</ion-title>
+      </ion-label>
+      
+      <div class="mgy-5"></div>
 
-  <div id="container" class="mgt-6" >
-    <ion-label>
-      <ion-title class="overline">MOBILE MONEY</ion-title>
-    </ion-label>
-    
-    <div class="mgy-5"></div>
-
-    <div class="list-border ion-no-padding mgx-5 ">
-      <ion-list lines="none" class="ion-no-margin ion-no-padding">
-        <ion-item>
-          <img width="34" height="24" [src]="getIcon">
-          <ion-label class="mgl-2"> 
-            <div class="caption-1-regular text-gray90">M-Pesa</div> 
-            <!-- <span class="caption-2-semibold text-gray70">**** 5698</span> -->
-          </ion-label>
-          <ion-checkbox checked="true" slot="end" class="checkbox"></ion-checkbox>
-        </ion-item>
-      </ion-list>
+      <div class="mgt-5" *ngFor="let option of cardOptions" >
+        <app-choose-option  class="mgt-5" [paymentOption]="option"></app-choose-option>
+      </div>
     </div>
 
-    <hr >
+    <div id="container" class="mgt-6" >
+      <ion-label>
+        <ion-title class="overline">MOBILE MONEY</ion-title>
+      </ion-label>
+      
+      <div class="mgy-5"></div>
 
-    <div class="ion-margin">
+      <div class="mgt-5" *ngFor="let option of mobileOptions" >
+        <app-choose-option  class="mgt-5" [paymentOption]="option"></app-choose-option>
+      </div>
+    </div>
+  </ion-radio-group>
+
+    <hr>
+
+    <div class="ion-margin-top">
       <ion-buttons class="mgt-5 text-midnightBlue20">
-        <ion-icon name="add"></ion-icon>
-        <ion-label class="mgl-2"> Add payment option</ion-label>
+        <ion-button class="ion-text-capitalize"> 
+          <ion-icon name="add"></ion-icon>
+          <ion-label class="mgl-2">Add payment option</ion-label>
+        </ion-button>
       </ion-buttons>
-
     </div>
-  </div>
+
 </ion-content>
 
 

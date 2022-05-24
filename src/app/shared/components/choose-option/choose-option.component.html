@@ -1,0 +1,13 @@
+  <div class="list-border ion-no-padding mgx-5 ">
+    <ion-list lines="none" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <img width="34" height="24" src="{{iconUrl + paymentOption.pay_method_name.toLowerCase() + '.svg'}}" >
+        <ion-label class="mgl-2"> 
+          <div class="caption-1-regular text-gray90">{{ paymentOption.pay_method_name }}</div> 
+          <span class="caption-2-semibold text-gray70">{{ paymentOption.pay_method_details ? (paymentOption.pay_method_details | formatLastFour) : '' }}</span>
+        </ion-label>
+        <!-- <ion-checkbox [checked]="isChecked" (ionChange)="hanldeChange()" slot="end" class="checkbox"></ion-checkbox> -->
+        <ion-radio [value]="paymentOption"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
