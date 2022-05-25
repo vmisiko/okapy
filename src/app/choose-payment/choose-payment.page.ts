@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-choose-payment',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChoosePaymentPage implements OnInit {
 
   iconUrl: String = "https://sendy-web-apps-assets.s3.eu-west-1.amazonaws.com/payment-method-icons/visa.svg";
-  constructor() { }
+  constructor(public toastController: ToastController) { }
 
   mobileOptions: any = [];
   cardOptions: any = [];
@@ -110,7 +111,17 @@ export class ChoosePaymentPage implements OnInit {
   }
 
   update(option) {
-    console.log(option.detail.value);
+    this.presentToast(option.detail.value);
   }
 
+  async presentToast(option) {
+      const toast = await this.toastController.create({
+        icon: '../../assets/icon/checkmark-circle.svg',
+        position: 'top',
+        color: 'light',
+        message: `${option.pay_method_name} selected for payment.`,
+        duration: 2000
+      });
+      toast.present();
+    }
 }
