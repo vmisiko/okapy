@@ -1,11 +1,4 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar no-border>
-    <ion-buttons>
-      <ion-back-button defaultHref=""></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-margin-top text-1-bold" >choose payment Option</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-top-header title="Choose payment Option"></app-top-header>
 
 <ion-content>
   <ion-radio-group [value]="selected" (ionChange)="update($event)" >
@@ -39,8 +32,8 @@
 
     <div class="ion-margin-top">
       <ion-buttons class="mgt-5 text-midnightBlue20">
-        <ion-button class="ion-text-capitalize"> 
-          <ion-icon name="add"></ion-icon>
+        <ion-button class="ion-text-capitalize" routerLink="/add-payment"> 
+          <ion-icon name="add" class="text-midnightBlue20"></ion-icon>
           <ion-label class="mgl-2">Add payment option</ion-label>
         </ion-button>
       </ion-buttons>

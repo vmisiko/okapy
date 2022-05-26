@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ChooseOptionComponent } from './components/choose-option/choose-option.component';
 import { formatCardno } from './pipes/formatCardno';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { TopHeaderComponent } from './components/top-header/top-header.component';
 
 
 @NgModule({
   declarations: [
     ChooseOptionComponent,
+    TopHeaderComponent,
     formatCardno
   ],
   imports: [
@@ -16,6 +18,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
   ],
   exports: [
     ChooseOptionComponent,
+    TopHeaderComponent,
     formatCardno,
   ],
 
