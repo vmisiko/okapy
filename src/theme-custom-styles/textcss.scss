@@ -129,6 +129,11 @@
   letter-spacing: -0.003em;
 }
 
+.loader {
+  --height: 100%;
+  --width: 100%;
+}
+
 .body-1-link-underlined{
   font-family: 'Nunito' 'Sans';
   font-style: normal;
@@ -185,9 +190,9 @@
   font-style: normal;
   font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
 }
 
 .caption-1-semibold{
@@ -267,4 +272,20 @@
   line-height: 16px;
   letter-spacing: 0.01em;
   text-decoration-line: underline;
+}
+
+ion-button {
+  --border-radius: 25px;
+}
+
+.card-input iframe {
+  box-sizing: border-box;
+  align-items: flex-start;
+  height: 40px;
+  background: #FFFFFF;
+  border: 0.5px solid #C0C4CC;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 8px;
+  width: 100%
 }

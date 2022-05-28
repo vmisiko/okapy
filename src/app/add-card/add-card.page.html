@@ -1,0 +1,59 @@
+<app-top-header title="Add Card"></app-top-header>
+
+
+<ion-content>
+  <div class="ion-padding mgt-4">
+    
+    <div id="cc-name" class="form-group">
+      <ion-label class="caption-1-regular text-gray80"> Cardholder name</ion-label>
+      <div>
+        <span class="card-input"></span>
+        <ion-label class="caption-2-regular text-error" *ngIf="errorMessages.card_name" >{{ errorMessages.card_name }}</ion-label>
+      </div>
+    </div>
+
+    <div id="cc-number" class="form-group ion-margin-top">
+      <ion-label class="caption-1-regular text-gray80"> Card number</ion-label>
+      <div>
+        <span class="card-input"></span>
+        <ion-label class="caption-2-regular text-error" *ngIf="errorMessages.cardno" >{{errorMessages.cardno}}</ion-label>
+      </div>
+    </div>
+      
+    <ion-grid class="ion-no-padding ion-margin-top">
+      <ion-row>
+        <ion-col>
+          <div id="cc-expiration-date" class="form-group">
+            <ion-label class="caption-1-regular text-gray80"> Expiry</ion-label>
+            <div class="form-control-static mgr-5">
+              <span class="card-input"></span>
+              <ion-label class="caption-2-regular text-error" *ngIf="errorMessages.expirydate" >{{ errorMessages.expirydate }}</ion-label>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div id="cc-cvv" class="form-group">
+            <ion-label class="caption-1-regular text-gray80"> CVV</ion-label>
+            <div class="form-control-static">
+              <span class="card-input"></span>
+              <ion-label class="caption-2-regular text-error" *ngIf="errorMessages.cvv">{{ errorMessages.cvv }}</ion-label>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+
+  <div class="ion-padding mgt-4">
+    <ion-label class="footer-text">
+      In order to verify your card details, we will charge a small fee of KES 5.00 and refund your card within 15 days.
+    </ion-label>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border ion-no-padding" no-border>
+  <ion-toolbar>
+    <ion-button expand="block" color="primary" class="ion-margin ion-text-capitalize" size="large" (click)="submitForm()"> Add Card </ion-button>
+  </ion-toolbar>
+</ion-footer>
