@@ -1,0 +1,54 @@
+<app-top-header title="Pay with Mpesa"></app-top-header>
+
+<ion-content>
+  <ion-list lines="full" class="ion-marging-top mgt-5">
+    <ion-item class="body-2-semibold">
+      <ion-label class="text-gray80">Amount to pay</ion-label>
+      <ion-label slot="end" class="text-gray90" >KES 19,535.00 </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <form class="ion-margin-top ion-padding mgt-4 ">
+    <div>
+      <ion-label class="caption-1-semibold text-gray80">Country code</ion-label>
+      <ion-label class="caption-1-semibold text-gray80 mgl-12">Phone Number</ion-label>
+      <div>
+        <ion-intl-tel-input 
+        id="phone-number" 
+        name="phone-number" 
+        [(ngModel)]="phoneNumber" 
+        #phoneNumberControl="ngModel"
+        ionIntlTelInputValid
+        class="mgt-1"
+        defaultCountryiso="ke"
+        [onlyCountries]="['ke']"
+        >
+        </ion-intl-tel-input>
+      </div>
+    </div>
+
+    <div *ngIf="phoneNumberControl.invalid && phoneNumberControl.touched">
+      <ion-text color="danger" *ngIf="phoneNumberControl.errors.required">
+        <p class="ion-no-margin"><sub>Phone is required.</sub></p>
+      </ion-text>
+      <ion-text color="danger" *ngIf="phoneNumberControl.errors.phone">
+        <p class="ion-no-margin"><sub>Phone is not valid.</sub></p>
+      </ion-text>
+    </div>
+  </form>
+
+    <div class="mgt-5 ion-text-center">
+      <ion-chip>
+        <ion-label class="caption-2-semibold">You’ll receive a prompt to enter your mobile money PIN</ion-label>
+      </ion-chip>
+    </div>
+</ion-content>
+
+<ion-footer class="ion-no-border ion-no-padding" no-border>
+  <ion-toolbar no-border>
+    <ion-button routerLink="/choose-payment" expand="block" color="primary" class="ion-margin ion-text-capitalize" size="large"> continue </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+
+
