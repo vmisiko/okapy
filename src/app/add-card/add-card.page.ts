@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingScreenService } from '../shared/Services/loading-screen.service';
+import { NotificationService } from '../shared/Services/notification.service';
 
 
 declare const VGSCollect:VGSCollectInterface;
@@ -33,25 +34,13 @@ export class AddCardPage implements OnInit {
   };
 
   constructor(
-    public loadingController: LoadingController,
-    public router: Router
+    public loadingScreenService: LoadingScreenService,
+    public router: Router,
+    public notificationService: NotificationService,
   ) { }
 
   ngOnInit() {
     this.setForm();
-    this.presentLoading();
-  }
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      cssClass: 'loader',
-      message: 'Please wait...',
-      duration: 2000,
-      showBackdrop: true,
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-    console.log('Loading dismissed!');
   }
 
   isValid() {
@@ -116,19 +105,22 @@ export class AddCardPage implements OnInit {
     });
   };
 
-  async submitForm(){
-    this.isValid();
-    if (!this.isValid) {
+  async submitForm() {
+    
+    if (!this.isValid()) {
       return;
     }
 
-    await this.presentLoading()
-
+    this.loadingScreenService.startLoading('Adding your card details....');
     this.vgsForm.submit('/post', {}, 
     (status, response)=> {
       this.response.push(JSON.stringify(response, null, ''));
       console.log(response.data);
-      this.router.navigate(['/choose-payment'])
+      this.loadingScreenService.stopLoading();
+      this.router.navigate(['/choose-payment']);
+      this.notificationService.notifyToast({
+        text: 'Card added and selected for payment.',
+      });
     });
   }
 }

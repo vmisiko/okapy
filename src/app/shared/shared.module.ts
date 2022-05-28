@@ -4,13 +4,15 @@ import { ChooseOptionComponent } from './components/choose-option/choose-option.
 import { formatCardno } from './pipes/formatCardno';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 
 
 @NgModule({
   declarations: [
     ChooseOptionComponent,
     TopHeaderComponent,
-    formatCardno
+    formatCardno,
+    LoadingScreenComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { TopHeaderComponent } from './components/top-header/top-header.component
     ChooseOptionComponent,
     TopHeaderComponent,
     formatCardno,
+    LoadingScreenComponent,
   ],
 
 })
